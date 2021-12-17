@@ -1,0 +1,44 @@
+﻿@page
+@model RegisterModel
+@{
+    ViewData["Title"] = "Register";
+    Layout = "";
+}
+
+
+<link href="~/css/login_signup.css" rel="stylesheet" type="text/css" />
+<div class="wrapper fadeInDown">
+    <div id="formContent">
+        <!-- Tabs Titles -->
+        <h2 class="inactive underlineHover"> <a class="nav-link text-dark" id="login" asp-area="Identity" asp-page="/Account/Login">Sign In</a> </h2>
+        <h2 class="active"><a>Register</a></h2>
+
+        <!-- Icon -->
+        <!-- Login Form -->
+        <form asp-route-returnUrl="@Model.ReturnUrl" method="post">
+            <div class="form-group">
+                <input asp-for="Input.Email" class="fadeIn second"  placeholder="Email" />
+            </div>
+            <div class="form-group">
+                <input asp-for="Input.Password" class="fadeIn third"  placeholder="Cofirm password"  />
+            </div>
+            <div class="form-group">
+                <input asp-for="Input.ConfirmPassword" class="fadeIn fourth" placeholder="Cofirm password" />
+            </div>
+            <div class="form-group">
+                <input type="submit" class="fadeIn fourth" value="Register">
+            </div>
+        </form>
+
+        <!-- Remind Passowrd -->
+        <div id="formFooter">
+            <a class="underlineHover" href="#">Forgot Password?</a>
+        </div>
+
+    </div>
+</div>
+
+
+@section Scripts {
+    <partial name="_ValidationScriptsPartial" />
+}

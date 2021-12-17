@@ -1,0 +1,65 @@
+﻿@page
+@model PersonalDataModel
+@{
+    ViewData["Title"] = "Change Personal Data";
+    ViewData["ActivePage"] = ManageNavPages.PersonalData;
+   
+}
+
+<h4>@ViewData["Title"]</h4>
+<body>
+    <div class="row">
+        <div class="col-md-6">
+            <p>You can change your personal address:</p>
+
+            <form id="account" method="post">
+
+                <div asp-validation-summary="All" class="text-danger"></div>
+                <div>
+                    <p>
+                        Your Current Address is: <br>
+                        @Model.CurrentAddress
+                    </p>
+                </div>
+                <div class="form-group">
+                    <div class="form-group">
+                        <label asp-for="Input.NumberAndStreet">Number and Street: </label>
+                        <input asp-for="Input.NumberAndStreet" class="form-control" required />
+                        <span asp-validation-for="Input.NumberAndStreet" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Suite">Suite/Appartment (Optional): </label>
+                        <input asp-for="Input.Suite" class="form-control" />
+                        <span asp-validation-for="Input.Suite" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.City">City:</label>
+                        <input asp-for="Input.City" class="form-control"  required/>
+                        <span asp-validation-for="Input.City" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.Country"></label>
+                        <input asp-for="Input.Country" class="form-control" required/>
+                        <span asp-validation-for="Input.Country" class="text-danger"></span>
+                    </div>
+                    <div class="form-group">
+                        <label asp-for="Input.ZipCode">Zip Code</label>
+                        <input asp-for="Input.ZipCode" class="form-control" required />
+                        <span asp-validation-for="Input.ZipCode" class="text-danger"></span>
+                    </div>
+
+
+                    <button type="submit" class="btn btn-primary">Change</button>
+                </div>
+
+            </form>
+
+        </div>
+    </div>
+
+
+</body>
+
+    @section Scripts {
+        <partial name="_ValidationScriptsPartial" />
+    }

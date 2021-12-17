@@ -1,0 +1,22 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using RocketElevatorsCustomerPortal.Areas.Identity.Data
+
+@inject SignInManager<RocketElevatorsCustomerPortalUser> SignInManager
+@inject UserManager<RocketElevatorsCustomerPortalUser> UserManager
+
+@{
+    ViewData["Title"] = "Intervention";
+
+
+}
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <partial name="_intervention" />
+}
+else
+{
+
+
+}

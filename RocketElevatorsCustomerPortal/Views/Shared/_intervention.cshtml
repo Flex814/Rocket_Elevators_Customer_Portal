@@ -1,0 +1,148 @@
+﻿@using RocketElevatorsCustomerPortal.Models
+@model Intervention
+<link href="~/css/tableStyle.css" rel="stylesheet" type="text/css" />
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/1.2.6/jquery.min.js"></script>
+
+
+@{ var preload = TempData["var"];
+                List<SelectListItem> listItems = new List<SelectListItem>();
+                List<SelectListItem> batteryList = new List<SelectListItem>();
+                List<SelectListItem> columnList = new List<SelectListItem>();
+                List<SelectListItem> elevatorList = new List<SelectListItem>();
+
+                List<SelectListItem> employeeList = new List<SelectListItem>();
+
+                if (TempData["preload"].ToString() == "preload")
+                {
+                    if (TempData["function"].ToString() == "battery")
+                    {
+    <script>
+
+        var buildingValue = @TempData["buildingId"];
+        var batteryValue = @TempData["batteryId"];
+    </script> }
+                    else if (TempData["function"].ToString() == "column")
+                    {
+
+    <script>
+
+        var buildingValue = @TempData["buildingId"];
+                var batteryValue = @TempData["batteryId"];
+                var columnValue = @TempData["columnId"];
+    </script> }
+                    else if (TempData["function"].ToString() == "elevator")
+                    {
+
+    <script>
+
+        var buildingValue = @TempData["buildingId"];
+         var batteryValue = @TempData["batteryId"];
+         var columnValue = @TempData["columnId"];
+        var elevatorValue = @TempData["elevatorId"];
+    </script> }
+                }
+
+
+                foreach (var building in ViewBag.building)
+                {
+
+                    if (@building.Id.ToString() == @TempData["buildingId"].ToString())
+                    {
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = @building.AdminName,
+                            Value = @building.Id.ToString(),
+
+                            Selected = true
+                        });
+                    }
+                    else
+                    {
+                        listItems.Add(new SelectListItem
+                        {
+                            Text = @building.AdminName,
+                            Value = @building.Id.ToString(),
+                            Selected = false
+                        });
+                    }
+
+                } }
+
+<body>
+    <div class="container">
+        <section class="callout-dark heading-title" style="z-index: 100; background-color: #1F2739;">
+            <div class="container">
+                <div class="text-center">
+                    <h3 class="fs-25" style="color:white">
+                        Request an intervention for your products..
+                    </h3>
+                </div>
+            </div>
+        </section>
+
+    </div>
+
+    <div class="container">
+        @using (Html.BeginForm("SendIntervention", "Intervention", FormMethod.Post))
+        {
+<div asp-validation-summary="All" class="text-danger"></div>
+                <div class="form-group">
+                    <div class="row" id="step2">
+                        <label for="selectedBuilding">Select a Building: 	&nbsp;	&nbsp;</label>
+                        @Html.DropDownListFor(m => m.BuildingId, listItems, new { @class = "form-control", @id = "selectedBuilding", @onchange = "selected_building()" })
+
+                    </div>
+                </div>
+                                <div class="form-group">
+                                    <div class="row" style="visibility: hidden" id="step3">
+                                        <!-- Drop Menu -->
+                                        <label for="selectedBattery">Select a Battery: 	&nbsp;	&nbsp;</label>
+                                        @Html.DropDownListFor(m => m.BatteryId, batteryList, new { @class = "form-control", @id = "selectedBattery", @onchange = "selected_battery()" })
+                                    </div>
+
+
+                                </div>
+                                                <div class="form-group">
+                                                    <div class="row" style="visibility: hidden" id="step4">
+                                                        <!-- Drop Menu -->
+                                                        <label for="selectedColumn">Select a Column: 	&nbsp;	&nbsp;</label>
+                                                        @Html.DropDownListFor(m => m.ColumnId, columnList, new { @class = "form-control", @id = "selectedColumn", @onchange = "selected_column()" })
+                                                    </div>
+
+
+                                                </div>
+                                                                <div class="form-group">
+                                                                    <div class="row" style="visibility: hidden" id="step5">
+                                                                        <!-- Drop Menu -->
+                                                                        <label for="selectedElevator">Select a Elevator: 	&nbsp;	&nbsp;</label>
+                                                                        @Html.DropDownListFor(m => m.ElevatorId, elevatorList, new { @class = "form-control", @id = "selectedElevator", @onchange = "selected_elevator()" })
+                                                                    </div>
+
+
+                                                                </div>
+                                                                                <div class="form-group">
+                                                                                    <div class="row" style="visibility: hidden" id="step6">
+                                                                                        <!-- Drop Menu -->
+                                                                                        <label for="employeeList">Select a Employee: 	&nbsp;	&nbsp;</label>
+                                                                                        @Html.DropDownListFor(m => m.EmployeeId, employeeList, new { @class = "form-control", @id = "employeeList" })
+                                                                                    </div>
+
+
+                                                                                </div>
+                                                                                                <div class="form-group">
+                                                                                                    <div class="row" style="visibility: hidden" id="step7">
+
+                                                                                                        <label for="message">Description: 	&nbsp;	&nbsp;</label>
+                                                                                                        @Html.TextAreaFor(m => m.Report, new { @class = "form-control", @id = "report", @rows = "4", @required = true })
+
+                                                                                                    </div>
+                                                                                                </div>
+                                                                                                                <div class="form-group">
+                                                                                                                    <div class="row" style="visibility: hidden" id="step8">
+                                                                                                                        <button type="submit" class="btn btn-primary">Submit</button>
+                                                                                                                    </div>
+                                                                                                                </div>}
+    </div>
+</body>
+<script src="~/js/intervention.js"></script>
+

@@ -1,0 +1,24 @@
+﻿@using Microsoft.AspNetCore.Identity
+@using RocketElevatorsCustomerPortal.Areas.Identity.Data
+
+@inject SignInManager<RocketElevatorsCustomerPortalUser> SignInManager
+@inject UserManager<RocketElevatorsCustomerPortalUser> UserManager
+
+@{
+    ViewData["Title"] = "Welcome";
+
+   
+}
+
+
+@if (SignInManager.IsSignedIn(User))
+{
+    <partial name="_home" />
+}
+else
+{
+    @*<script>
+                window.location.href = "@Url.Action("Login",  new { Area = "Identity" })";
+        </script>*@
+
+}

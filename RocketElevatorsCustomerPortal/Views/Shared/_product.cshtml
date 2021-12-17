@@ -1,0 +1,152 @@
+﻿@addTagHelper *, Vereyon.Web.FlashMessage
+
+<flash dismissable="true" />
+<div class="container">
+    <section class="callout-dark heading-title" style="z-index: 100; background-color: #1F2739;">
+        <div class="container">
+
+            <div class="text-center">
+                <h3 class="fs-30" style="color:white">Your Buisness is important to us..</h3>
+                <p>Which is why we have designed this interface so you can stay on top of your products with us.</p>
+            </div>
+
+        </div>
+
+    </section>
+
+</div>
+
+<link href="~/css/tableStyle.css" rel="stylesheet" type="text/css" />
+
+
+<div class="center">
+    <h2 style="margin-bottom:-25px;margin-top:10px;">Buildings</h2>
+    <table class="container">
+
+        <thead>
+            <tr>
+                <th><h1>Admin Name</h1></th>
+                <th><h1>Admin Email</h1></th>
+                <th><h1>Phone Number</h1></th>
+                <th><h1>Tech Name</h1></th>
+                <th><h1>Tech Email</h1></th>
+               
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var building in ViewBag.building)
+            {
+                <tr>
+                    <td>@building.AdminName</td>
+                    <td>@building.AdminEmail</td>
+                    <td>@building.AdminPhoneNumer</td>
+                    <td>@building.TechFullName</td>
+                    <td>@building.TechEmail</td>
+                   
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<div class="center">
+    <h2 style="margin-bottom:-25px;margin-top:10px;">Batteries</h2>
+    <table class="container">
+
+        <thead>
+            <tr>
+                <th><h1>Battery Type</h1></th>
+                <th><h1>Status</h1></th>
+                <th><h1>Last Inspection</h1></th>
+                <th><h1>Certificate</h1></th>
+                <th><h1>Employee ID</h1></th>
+                <th><h1>Intervention</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var battery in ViewBag.battery)
+            {
+                <tr>
+                    <td>@battery.BatteryType</td>
+                    <td>@battery.Status</td>
+                    <td>@battery.DateOfLastInspection</td>
+                    <td>@battery.CertificateOfOperations</td>
+                    <td>@battery.EmployeeId</td>
+                    <td>
+                        @Html.ActionLink("Request Intervention", "Index", "Intervention", new { product = "battery", id = @battery.Id }, null)
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<div class="center">
+    <h2 style="margin-bottom:-25px;margin-top:10px;">Column</h2>
+    <table class="container">
+
+        <thead>
+            <tr>
+                <th><h1>Column Type</h1></th>
+                <th><h1>Number of Floor</h1></th>
+                <th><h1>Status</h1></th>
+                <th><h1>Intervention</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var column in ViewBag.column)
+            {
+                <tr>
+                    <td>@column.ColumnType</td>
+                    <td>@column.NumberOfFloor</td>
+                    <td>@column.Status</td>
+                    <td>
+                        @Html.ActionLink("Request Intervention", "Index", "Intervention", new { product = "column", id = @column.Id }, null)
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
+<div class="center">
+    <h2 style="margin-bottom:-25px;margin-top:10px;">Elevators</h2>
+    <table class="container">
+
+        <thead>
+            <tr>
+                <th><h1>Serial Number</h1></th>
+                <th><h1>Model</h1></th>
+                <th><h1>Elevator Type</h1></th>
+                <th><h1>Status</h1></th>
+                <th><h1>Last Inspection</h1></th>
+                <th><h1>Certificate</h1></th>
+                <th><h1>Intervention</h1></th>
+            </tr>
+        </thead>
+        <tbody>
+
+            @foreach (var elevator in ViewBag.elevator)
+            {
+                <tr>
+                    <td>@elevator.SerialNumber</td>
+                    <td>@elevator.Model</td>
+                    <td>@elevator.ElevatorType</td>
+                    <td>@elevator.Status</td>
+                    <td>@elevator.DateOfLastInspection</td>
+                    <td>@elevator.CertificateOfInspection</td>
+                    <td>
+                        @Html.ActionLink("Request Intervention", "Index", "Intervention", new { product = "elevator", id = @elevator.Id }, null)
+
+                    </td>
+                </tr>
+            }
+
+        </tbody>
+    </table>
+</div>
