@@ -11,11 +11,11 @@ body {
     font-family: 'Open Sans', sans-serif;
     font-weight: 300;
     line-height: 1.42em;
-    color: #A7A1AE;
-    background-color: #1F2739;
+    color: #000;
+    background-color: #FFFFFF;
 }
 label {
-    color: #e91e63;
+    color: #000;
 }
 
     label span {
@@ -27,7 +27,7 @@ h1 {
     font-weight: 300;
     line-height: 1em;
     text-align: center;
-    color: #4DC3FA;
+    color: #000;
 }
 
 h2 {
@@ -37,13 +37,13 @@ h2 {
     display: block;
     line-height: 1em;
     padding-bottom: 2em;
-    color: #FB667A;
+    color: #000;
 }
 
     h2 a {
         font-weight: 700;
         text-transform: uppercase;
-        color: #FB667A;
+        color: #000;
         text-decoration: none;
     }
 
@@ -59,7 +59,7 @@ h2 {
     font-weight: bold;
     font-size: 1em;
     text-align: left;
-    color: #185875;
+    color: #000;
 }
 
 .container td {
@@ -79,32 +79,32 @@ h2 {
 
     /* Background-color of the odd rows */
     .container tr:nth-child(odd) {
-        background-color: #323C50;
+        background-color: #fff;
     }
 
     /* Background-color of the even rows */
     .container tr:nth-child(even) {
-        background-color: #2C3446;
+        background-color: #fff;
     }
 
     .container th {
-        background-color: #1F2739;
+        background-color: #fff;
     }
 
     .container td:first-child {
-        color: #FB667A;
+        color: #000;
     }
 
     .container tr:hover {
-        background-color: #464A52;
+        background-color: #fff;
         -webkit-box-shadow: 0 6px 6px -6px #0E1119;
         -moz-box-shadow: 0 6px 6px -6px #0E1119;
         box-shadow: 0 6px 6px -6px #0E1119;
     }
 
     .container td:hover {
-        background-color: #FFF842;
-        color: #403E10;
+        background-color: #FFF;
+        color: #ff0000;
         font-weight: bold;
         box-shadow: #7F7C21 -1px 1px, #7F7C21 -2px 2px, #7F7C21 -3px 3px, #7F7C21 -4px 4px, #7F7C21 -5px 5px, #7F7C21 -6px 6px;
         transform: translate3d(6px, -6px, 0);

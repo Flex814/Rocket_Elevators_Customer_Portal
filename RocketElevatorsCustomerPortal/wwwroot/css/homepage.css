@@ -5,7 +5,7 @@
 }
 
 body {
-    background-color: #1F2739;
+    background-color: #fff;
 }
 
 .main {
@@ -24,13 +24,13 @@ h1 {
     
     text-align: center;
     text-transform: uppercase;
-    color: #F1FAEE;
+    color: #000;
     font-size: 4rem;
 }
 h2 {
     text-align: center;
     text-transform: uppercase;
-    color: #F1FAEE;
+    color: #000;
     font-size: 2rem;
 }
 .roller {
@@ -42,7 +42,7 @@ h2 {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: #e91e63;
+    color: #000;
 }
 
 
@@ -51,7 +51,7 @@ h2 {
     font-style: italic;
     letter-spacing: 1rem;
     margin-top: 0;
-    color: #A8DADC;
+    color: #000;
 }
 
 .roller #rolltext {
@@ -82,7 +82,7 @@ h2 {
     h1 {
         text-align: center;
         text-transform: uppercase;
-        color: #F1FAEE;
+        color: #FFF;
         font-size: 2.125rem;
     }
 
